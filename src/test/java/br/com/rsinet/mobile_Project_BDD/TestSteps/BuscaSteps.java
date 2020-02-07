@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
 
+import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import br.com.rsinet.mobile_Project_BDD.pageObjectFactory.BuscaPage;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -16,12 +16,12 @@ public class BuscaSteps {
 	
 	@Before
 	public void iniciaApp() throws MalformedURLException {
-		driver = DriverFactory.iniciaDriver(driver);
+		driver = DriverFactory.iniciaAplicativo();
 	}
 
 	@Dado("^o produto desejado$")
 	public void o_produto_desejado() throws Throwable {
-		BuscaPage busca = new BuscaPage(driver);
+		BuscaScreen busca = new BuscaScreen(driver);
 		busca.getEscolheCategoria();
 	}
 
@@ -32,7 +32,7 @@ public class BuscaSteps {
 
 	@Entao("^escolhe o produto$")
 	public void escolhe_o_produto() throws Throwable {
-		BuscaPage busca = new BuscaPage(driver);
+		BuscaScreen busca = new BuscaScreen(driver);
 		busca.getEscolheItem();
 
 	}

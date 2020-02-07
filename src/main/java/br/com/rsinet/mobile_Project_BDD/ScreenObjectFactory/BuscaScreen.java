@@ -1,4 +1,4 @@
-package br.com.rsinet.mobile_Project_BDD.pageObjectFactory;
+package br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class BuscaPage {
-	public BuscaPage(WebDriver driver) {
+public class BuscaScreen {
+	public BuscaScreen(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 

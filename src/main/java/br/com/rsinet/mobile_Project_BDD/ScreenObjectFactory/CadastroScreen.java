@@ -1,4 +1,4 @@
-package br.com.rsinet.mobile_Project_BDD.pageObjectFactory;
+package br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,8 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class CadastroPage {
-	public CadastroPage(WebDriver driver) {
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
+
+public class CadastroScreen {
+	public CadastroScreen(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -64,6 +68,11 @@ public class CadastroPage {
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private String ValidaCadastro;
+	
+	public void scroll(WebDriver driver) {
+		TouchAction actions = new TouchAction((PerformsTouchActions) driver);
+		actions.press(PointOption.point(1067, 1773)).moveTo(PointOption.point(1059, 332)).release().perform();
+	}
 
 	public void getClicaOpcoes() {
 		clicaOpcoes.click();
@@ -79,22 +88,27 @@ public class CadastroPage {
 
 	public void getNome() {
 		nome.click();
+		nome.sendKeys("marcos");
 	}
 
 	public void getEmail() {
 		email.click();
+		email.sendKeys("email@email.com");
 	}
 
 	public void getSenha() {
 		senha.click();
+		senha.sendKeys("123Senha");
 	}
 
 	public void getConfirmarSenha() {
 		confirmarSenha.click();
+		confirmarSenha.sendKeys("123Senha");
 	}
 
 	public void getPrimeiroNome() {
 		primeiroNome.click();
+		primeiroNome.sendKeys("Marcos");
 	}
 
 	public void getUltimoNome() {

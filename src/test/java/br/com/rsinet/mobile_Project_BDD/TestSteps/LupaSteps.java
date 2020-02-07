@@ -5,8 +5,8 @@ import java.net.MalformedURLException;
 import org.junit.After;
 import org.openqa.selenium.WebDriver;
 
+import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import br.com.rsinet.mobile_Project_BDD.pageObjectFactory.LupaPage;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -17,23 +17,23 @@ public class LupaSteps {
 
 	@Before
 	public void iniciaNavegador() throws MalformedURLException {
-		driver = DriverFactory.iniciaDriver(driver);
+		driver = DriverFactory.iniciaAplicativo();
 	}
 	
 	@After
 	public void fechaApp() {
-		DriverFactory.fechaDriver();
+		DriverFactory.fechaAplicativo();
 	}
 
 	@Dado("^que cliquei na lupa$")
 	public void que_cliquei_na_lupa() {
-		LupaPage lupa = new LupaPage(driver);
+		LupaScreen lupa = new LupaScreen(driver);
 		lupa.getClicaLupa();
 	}
 
 	@Dado("^pesquisei o produto$")
 	public void pesquisei_o_produto() {
-		LupaPage lupa = new LupaPage(driver);
+		LupaScreen lupa = new LupaScreen(driver);
 		lupa.getPesquisaLupa();
 		lupa.getClicaPesquisa();
 		
@@ -41,7 +41,7 @@ public class LupaSteps {
 
 	@Quando("^selecionar o produto$")
 	public void selecionar_o_produto() {
-		LupaPage lupa = new LupaPage(driver);
+		LupaScreen lupa = new LupaScreen(driver);
 		lupa.getClicaItem();
 	}
 
@@ -52,7 +52,7 @@ public class LupaSteps {
 
 	@Quando("^pesquisar o produto$")
 	public void pesquisar_o_produto() throws Throwable {
-		LupaPage lupa = new LupaPage(driver);
+		LupaScreen lupa = new LupaScreen(driver);
 		lupa.getPesquisaLupa();
 	}
 
