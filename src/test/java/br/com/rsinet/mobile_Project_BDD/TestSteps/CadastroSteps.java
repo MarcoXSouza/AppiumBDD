@@ -2,33 +2,28 @@ package br.com.rsinet.mobile_Project_BDD.TestSteps;
 
 import java.net.MalformedURLException;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.CadastroScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import cucumber.api.java.Before;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import io.appium.java_client.android.AndroidDriver;
 
 public class CadastroSteps {
-	private WebDriver driver;
+	private AndroidDriver<WebElement> driver;
+	CadastroScreen cadastro;
+	ScreenObjectManager screenObjectManager;
 
-	@Before
-	public void iniciaApp() throws MalformedURLException {
-		driver = DriverFactory.iniciaAplicativo();
-	}
-
-	@After
-	public void fechaApp() {
-		DriverFactory.fechaAplicativo();
-	}
 
 	@Dado("^que estou na pagina de Cadastro$")
-	public void que_estou_na_pagina_de_Cadastro() {
-		CadastroScreen cadastro = new CadastroScreen(driver);
+	public void que_estou_na_pagina_de_Cadastro() throws MalformedURLException {
+		driver = DriverFactory.iniciaAplicativo();
+		screenObjectManager = new ScreenObjectManager(driver);
+		cadastro = screenObjectManager.getcadastroScreen();
 		cadastro.getClicaOpcoes();
 		cadastro.getClicaLogIn();
 		cadastro.getClicaNovaConta();
@@ -36,7 +31,6 @@ public class CadastroSteps {
 
 	@Dado("^preencher os dados do usuario$")
 	public void preencher_os_dados_do_usuario() {
-		CadastroScreen cadastro = new CadastroScreen(driver);
 		cadastro.getNome();
 		cadastro.getEmail();
 		cadastro.getSenha();
@@ -56,7 +50,6 @@ public class CadastroSteps {
 	// Teste Sucesso
 	@Quando("^clicar em registrar$")
 	public void clicar_em_registrar() {
-		CadastroScreen cadastro = new CadastroScreen(driver);
 		cadastro.getRegistra();
 		cadastro.getClicaOpcoes();
 
@@ -66,14 +59,12 @@ public class CadastroSteps {
 	public void o_usuario_devera_ser_cadastrado() {
 //		CadastroScreen cadastro = new CadastroScreen(driver);
 //		Assert.assertTrue(cadastro.getValidaCadastro().equals("nome"));
+		DriverFactory.fechaAplicativo();
 	}
 
 	// Teste Falha
-	
-	
 	@Quando("^registrar$")
 	public void registrar() {
-		CadastroScreen cadastro = new CadastroScreen(driver);
 		cadastro.getRegistra();
 		cadastro.getClicaOpcoes();
 
@@ -81,8 +72,8 @@ public class CadastroSteps {
 
 	@Entao("^o usuario nao devera ser cadastrado$")
 	public void o_usuario_nao_devera_ser_cadastrado() {
-		CadastroScreen cadastro = new CadastroScreen(driver);
 		Assert.assertTrue(cadastro.getValidaCadastro().equals("nome"));
+		DriverFactory.fechaAplicativo();
 
 	}
 

@@ -8,7 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LupaScreen {
 
+	private WebDriver driver;
+
 	public LupaScreen(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 
 	}

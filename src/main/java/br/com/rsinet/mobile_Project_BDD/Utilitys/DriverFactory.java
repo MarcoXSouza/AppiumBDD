@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -16,7 +15,7 @@ public class DriverFactory {
 	private static AndroidDriver<WebElement> driver;
 	private static DesiredCapabilities cap;
 
-	public static WebDriver iniciaAplicativo() throws MalformedURLException {
+	public static AndroidDriver<WebElement> iniciaAplicativo() throws MalformedURLException {
 		if (driver == null) {
 		cap = new DesiredCapabilities();
 		cap.setCapability(CapabilityType.BROWSER_NAME, "");

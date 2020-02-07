@@ -9,9 +9,9 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "features",
 		glue = "br.com.rsinet.mobile_Project_BDD.TestSteps",
-		monochrome = true,
-		dryRun = false,
-		tags = {"@Lupa"}
+		monochrome = true
+		,dryRun = false
+		,tags = {"@Cadastro"}
 		)
 
 

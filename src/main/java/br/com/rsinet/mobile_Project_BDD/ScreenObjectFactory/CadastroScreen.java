@@ -8,10 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class CadastroScreen {
-	public CadastroScreen(WebDriver driver) {
+	public CadastroScreen(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -69,6 +70,7 @@ public class CadastroScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private String ValidaCadastro;
 	
+	@SuppressWarnings("rawtypes")
 	public void scroll(WebDriver driver) {
 		TouchAction actions = new TouchAction((PerformsTouchActions) driver);
 		actions.press(PointOption.point(1067, 1773)).moveTo(PointOption.point(1059, 332)).release().perform();
