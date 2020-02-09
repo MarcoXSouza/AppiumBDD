@@ -1,18 +1,17 @@
 # language: pt
 
-@Busca_de_produto 
-Funcionalidade: Cadastro de novo usuario 
+@Busca
+Funcionalidade: Buscar produto
 
 Contexto:
-Dado o produto desejado
-E estou logado
-Quando verificar o produto
+Dado estou logado
+Quando escolhe o produto
 
 @Busca_Sucesso
-Cenario: Cadastro com sucesso 
-Entao escolhe o produto
+Cenario: Busca com sucesso
+Entao verificar o produto
 	
 @Busca_Falha
-Cenario: Cadastro com Falha
+Cenario: Falha ao adicionar produtos
 E adiciona quantidade nao suportada
 Entao validar operacao

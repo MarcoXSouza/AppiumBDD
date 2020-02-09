@@ -16,15 +16,6 @@ public class CadastroScreen {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
-	private WebElement clicaOpcoes;
-
-	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/linearLayoutLogin")
-	private WebElement clicaLogIn;
-
-	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewSingUpToday")
-	private WebElement clicaNovaConta;
-
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.EditText")
 	private WebElement nome;
 
@@ -69,23 +60,11 @@ public class CadastroScreen {
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private String ValidaCadastro;
-	
+
 	@SuppressWarnings("rawtypes")
 	public void scroll(WebDriver driver) {
 		TouchAction actions = new TouchAction((PerformsTouchActions) driver);
 		actions.press(PointOption.point(1067, 1773)).moveTo(PointOption.point(1059, 332)).release().perform();
-	}
-
-	public void getClicaOpcoes() {
-		clicaOpcoes.click();
-	}
-
-	public void getClicaLogIn() {
-		clicaLogIn.click();
-	}
-
-	public void getClicaNovaConta() {
-		clicaNovaConta.click();
 	}
 
 	public void getNome() {

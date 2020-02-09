@@ -6,12 +6,12 @@ Contexto:
 Dado que cliquei na lupa
 
 @Lupa_Sucesso
-Cenario:
+Cenario: Pesquisa produto pela Lupa com sucesso
 E pesquisei o produto
 Quando selecionar o produto
 Entao o produto sera validado
 
 @Lupa_Falha
-Cenario:
+Cenario: Pesquisa produto inexistente
 Quando pesquisar o produto
 Entao o produto nao sera encontrado
