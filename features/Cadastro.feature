@@ -5,7 +5,7 @@ Funcionalidade: Cadastrar usuario
 
 Contexto: Pagina de cadastro
 Dado que estou na pagina de Cadastro
-E preencher os dados do usuario
+E preencher os dados do usuario 
 
 @Cadastro_Sucesso
 Cenario: Cadastrar usuario com sucesso

@@ -40,9 +40,6 @@ public class CadastroScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCountries")
 	private WebElement pais;
 
-	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[9]")
-	private WebElement selecionarPais;
-
 	@FindBy(how = How.XPATH, using = "//*[@resource-id='com.Advantage.aShopping:id/AosEditTextState']/child::*[1]")
 	private WebElement estado;
 
@@ -58,8 +55,8 @@ public class CadastroScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private WebElement registra;
 
-	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
-	private String ValidaCadastro;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
+	private WebElement ValidaCadastro;
 
 	@SuppressWarnings("rawtypes")
 	public void scroll(WebDriver driver) {
@@ -94,6 +91,7 @@ public class CadastroScreen {
 
 	public void getUltimoNome() {
 		ultimoNome.click();
+		ultimoNome.sendKeys("");
 	}
 
 	public void getTelefone() {
@@ -104,8 +102,11 @@ public class CadastroScreen {
 		pais.click();
 	}
 
-	public void getSelecionarPais() {
-		selecionarPais.click();
+	public void escolhePais(AndroidDriver<WebElement> driver) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+						+ "Brazil" + "\").instance(0))")
+				.click();
 	}
 
 	public void getEstado() {
@@ -129,7 +130,7 @@ public class CadastroScreen {
 	}
 
 	public String getValidaCadastro() {
-		return ValidaCadastro;
+		return ValidaCadastro.getText();
 	}
 
 }

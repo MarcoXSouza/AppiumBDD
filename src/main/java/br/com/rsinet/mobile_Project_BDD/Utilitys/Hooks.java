@@ -9,16 +9,22 @@ import cucumber.api.java.Before;
 import io.appium.java_client.android.AndroidDriver;
 
 public class Hooks {
-	private AndroidDriver<WebElement> driver;
+	public static AndroidDriver<WebElement> driver;
 
-	@Before
+	@Before//("@Cadastro")
 	public void iniciaApp() throws MalformedURLException {
-		System.out.println("abre");
 		driver = DriverFactory.iniciaAplicativo();
 	}
 
-//	@After
-//	public void fechaApp() {
-//		DriverFactory.fechaAplicativo();
-//	}
+	@After("@Cadastro_Sucesso")
+	public void fechaCS() {
+		driver.closeApp();
+	}
+
+	@After
+	public void fechaApp() {
+		System.out.println("Fecha app");
+		driver.closeApp();
+	}
+
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LupaScreen {
 
+	@SuppressWarnings("unused")
 	private WebDriver driver;
 
 	public LupaScreen(WebDriver driver) {
@@ -26,7 +27,10 @@ public class LupaScreen {
 	private WebElement clicaItem;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
-	private String validaProduto;
+	private WebElement validaProduto;
+	
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewNoProductsToShow")
+	private WebElement produtoInexistente;
 
 	public void getClicaLupa() {
 		clicaLupa.click();
@@ -49,7 +53,13 @@ public class LupaScreen {
 	}
 
 	public String getValidaProduto() {
-		return validaProduto;
+		return validaProduto.getText();
 	}
+	
+	public String getProdutoInexistente() {
+		return produtoInexistente.getText();
+	}
+	
+	
 
 }

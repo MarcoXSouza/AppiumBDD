@@ -9,6 +9,8 @@ import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.CadastroScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -20,9 +22,18 @@ public class CadastroSteps {
 	private LogInScreen logIn;
 	private ScreenObjectManager screenObjectManager;
 
+	@Before
+	public void iniciaApp() throws MalformedURLException {
+		driver = DriverFactory.iniciaAplicativo();
+	}
+	
+	@After("@Cadastro_Sucesso")
+	public void fechaApp() {
+		driver.closeApp();
+	}
+	
 	@Dado("^que estou na pagina de Cadastro$")
 	public void que_estou_na_pagina_de_Cadastro() throws MalformedURLException {
-		driver = DriverFactory.iniciaAplicativo();
 		screenObjectManager = new ScreenObjectManager(driver);
 		cadastro = screenObjectManager.getcadastroScreen();
 		logIn = screenObjectManager.getLogInScreen();
@@ -42,7 +53,7 @@ public class CadastroSteps {
 		cadastro.getTelefone();
 		cadastro.scroll(driver);
 		cadastro.getPais();
-		cadastro.getSelecionarPais();
+		cadastro.escolhePais(driver);
 		cadastro.getEstado();
 		cadastro.getEndereco();
 		cadastro.getCidade();
@@ -59,9 +70,7 @@ public class CadastroSteps {
 
 	@Entao("^o usuario devera ser cadastrado$")
 	public void o_usuario_devera_ser_cadastrado() {
-//		CadastroScreen cadastro = new CadastroScreen(driver);
 //		Assert.assertTrue(cadastro.getValidaCadastro().equals("nome"));
-//		DriverFactory.fechaAplicativo();
 	}
 
 	// Teste Falha
@@ -74,9 +83,7 @@ public class CadastroSteps {
 
 	@Entao("^o usuario nao devera ser cadastrado$")
 	public void o_usuario_nao_devera_ser_cadastrado() {
-		Assert.assertTrue(cadastro.getValidaCadastro().equals("nome"));
-//		DriverFactory.fechaAplicativo();
-
+		Assert.assertFalse(cadastro.getValidaCadastro().equals("nome"));
 	}
 
 }

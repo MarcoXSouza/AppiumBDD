@@ -42,7 +42,7 @@ public class BuscaSteps {
 	// Sucesso
 	@Entao("^verificar o produto$")
 	public void verificar_o_produto() {
-
+		
 	}
 
 	// Falha
@@ -56,7 +56,7 @@ public class BuscaSteps {
 
 	@Entao("^validar operacao$")
 	public void validar_operacao() {
-		// Write code here that turns the phrase above into concrete actions
+
 	}
 
 }
