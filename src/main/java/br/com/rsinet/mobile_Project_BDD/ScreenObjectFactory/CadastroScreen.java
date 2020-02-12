@@ -64,38 +64,39 @@ public class CadastroScreen {
 		actions.press(PointOption.point(1067, 1773)).moveTo(PointOption.point(1059, 332)).release().perform();
 	}
 
-	public void getNome() {
+	public void getNome(String usuario) {
 		nome.click();
-		nome.sendKeys("marcos");
+		nome.sendKeys(usuario);
 	}
 
-	public void getEmail() {
+	public void getEmail(String eMail) {
 		email.click();
-		email.sendKeys("email@email.com");
+		email.sendKeys(eMail);
 	}
 
-	public void getSenha() {
+	public void getSenha(String password) {
 		senha.click();
-		senha.sendKeys("123Senha");
+		senha.sendKeys(password);
 	}
 
-	public void getConfirmarSenha() {
+	public void getConfirmarSenha(String password1) {
 		confirmarSenha.click();
-		confirmarSenha.sendKeys("123Senha");
+		confirmarSenha.sendKeys(password1);
 	}
 
-	public void getPrimeiroNome() {
+	public void getPrimeiroNome(String usuario1) {
 		primeiroNome.click();
-		primeiroNome.sendKeys("Marcos");
+		primeiroNome.sendKeys(usuario1);
 	}
 
-	public void getUltimoNome() {
+	public void getUltimoNome(String sobrenome) {
 		ultimoNome.click();
-		ultimoNome.sendKeys("");
+		ultimoNome.sendKeys(sobrenome);
 	}
 
-	public void getTelefone() {
+	public void getTelefone(String phone) {
 		telefone.click();
+		telefone.sendKeys(phone);
 	}
 
 	public void getPais() {
@@ -109,20 +110,24 @@ public class CadastroScreen {
 				.click();
 	}
 
-	public void getEstado() {
+	public void getEstado(String esta) {
 		estado.click();
+		estado.sendKeys(esta);
 	}
 
-	public void getEndereco() {
+	public void getEndereco(String address) {
 		endereco.click();
+		endereco.sendKeys(address);
 	}
 
-	public void getCidade() {
+	public void getCidade(String city) {
 		cidade.click();
+		cidade.sendKeys(city);
 	}
 
-	public void getCep() {
+	public void getCep(String CEP) {
 		cep.click();
+		cep.sendKeys(CEP);
 	}
 
 	public void getRegistra() {

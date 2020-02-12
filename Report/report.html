@@ -30,6 +30,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
@@ -42,7 +43,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-				<span class='label suite-start-time'>Feb 11, 2020 11:03:29 PM</span>
+				<span class='label suite-start-time'>Feb 12, 2020 12:13:39 PM</span>
 			</a>
 			<a href='#!'>
 				<span class='label'>v3.0.3</span>
@@ -64,6 +65,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -76,9 +79,8 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@Cadastro</a></li>
-					<li><a href='#'>@Cadastro_Sucesso</a></li>
-					<li><a href='#'>@Cadastro_Falha</a></li>
+					<li><a href='#'>@Busca</a></li>
+					<li><a href='#'>@Busca_Falha</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -126,10 +128,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>8</span> test(s) passed</span>
+					<span><span class='strong'>2</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+					<span class='strong'>1</span> test(s) failed, <span class='strong'>1</span> others
 				</div>
 			</div>
 		</div>
@@ -141,10 +143,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>8</span> step(s) passed</span>
+					<span><span class='strong'>2</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>0</span> step(s) failed, <span class='strong'>0</span> others
+					<span class='strong'>1</span> step(s) failed, <span class='strong'>1</span> others
 				</div>
 			</div>
 		</div>
@@ -159,38 +161,38 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Cadastrar usuario</span>
-						<span class='test-time'>Feb 11, 2020 11:03:29 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-name'>Buscar produto</span>
+						<span class='test-time'>Feb 12, 2020 12:13:39 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 11, 2020 11:03:29 PM</span>
-	<span class='label end-time'>Feb 11, 2020 11:04:55 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 1m 25s+994ms</span>
+	<span class='label start-time'>Feb 12, 2020 12:13:39 PM</span>
+	<span class='label end-time'>Feb 12, 2020 12:14:01 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+265ms</span>
 </div>
 	<div class='test-attributes'>
 			<div class='category-list'>
-				<span class='category label white-text'>@Cadastro</span>
+				<span class='category label white-text'>@Busca</span>
 			</div>
 	</div>
 	<ul class='collapsible node-list' data-collapsible='accordion'>
 		
-				<li class='node level-1  pass' status='pass' test-id='2'>
+				<li class='node level-1  fail' status='fail' test-id='2'>
 					<div class='collapsible-header'>
-						<div class='node-name'>Scenario: Cadastrar usuario com sucesso</div>						
-						<span class='node-time'>Feb 11, 2020 11:03:29 PM</span>
-						<span class='node-duration'>0h 0m 47s+369ms</span>
-						<span class='test-status right pass'>pass</span>
+						<div class='node-name'>Scenario: Falha ao adicionar produtos</div>						
+						<span class='node-time'>Feb 12, 2020 12:13:39 PM</span>
+						<span class='node-duration'>0h 0m 22s+210ms</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 						<ul class='collapsible node-list' data-collapsible='accordion'>
 				<li class='node level-2 leaf pass' status='pass' test-id='3'>
 					<div class='collapsible-header'>
-						<div class='node-name'>Dado que estou na pagina de Cadastro</div>						
-						<span class='node-time'>Feb 11, 2020 11:03:29 PM</span>
-						<span class='node-duration'>0h 0m 22s+194ms</span>
+						<div class='node-name'>Dado estou logado</div>						
+						<span class='node-time'>Feb 12, 2020 12:13:39 PM</span>
+						<span class='node-duration'>0h 0m 14s+868ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -206,7 +208,7 @@
 										<tbody>
 												<tr class='log' status='pass'>
 													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:03:52 PM</td>
+													<td class='timestamp'>12:13:54 PM</td>
 													<td class='step-details'>passed</td>
 												</tr>
 										</tbody>
@@ -216,9 +218,9 @@
 				</li>
 				<li class='node level-2 leaf pass' status='pass' test-id='4'>
 					<div class='collapsible-header'>
-						<div class='node-name'>E preencher os dados do usuario</div>						
-						<span class='node-time'>Feb 11, 2020 11:03:52 PM</span>
-						<span class='node-duration'>0h 0m 23s+505ms</span>
+						<div class='node-name'>Quando escolhe o produto</div>						
+						<span class='node-time'>Feb 12, 2020 12:13:54 PM</span>
+						<span class='node-duration'>0h 0m 6s+61ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -234,7 +236,7 @@
 										<tbody>
 												<tr class='log' status='pass'>
 													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:15 PM</td>
+													<td class='timestamp'>12:14:00 PM</td>
 													<td class='step-details'>passed</td>
 												</tr>
 										</tbody>
@@ -242,12 +244,12 @@
 								</div>
 						</div>
 				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='5'>
+				<li class='node level-2 leaf fail' status='fail' test-id='5'>
 					<div class='collapsible-header'>
-						<div class='node-name'>Quando clicar em registrar</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:15 PM</span>
-						<span class='node-duration'>0h 0m 1s+659ms</span>
-						<span class='test-status right pass'>pass</span>
+						<div class='node-name'>E adiciona quantidade nao suportada</div>						
+						<span class='node-time'>Feb 12, 2020 12:14:00 PM</span>
+						<span class='node-duration'>0h 0m 1s+266ms</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 						<div class='collapsible-body'>
 								<div class='node-steps'>
@@ -260,22 +262,56 @@
 											</tr>
 										</thead>
 										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:17 PM</td>
-													<td class='step-details'>passed</td>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>12:14:01 PM</td>
+													<td class='step-details'><pre>org.openqa.selenium.StaleElementReferenceException: androidx.test.uiautomator.StaleObjectException
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'RSI1508', ip: '10.1.0.60', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.Advantage.aShopping.Spl..., appPackage: com.Advantage.aShopping, browserName: , databaseEnabled: false, desired: {appActivity: com.Advantage.aShopping.Spl..., appPackage: com.Advantage.aShopping, browserName: , deviceName: AOSP on IA Emulator, platformName: android, platformVersion: 9, resetKeyBoard: true, udid: emulator-5554, unicodeKeyboard: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: AOSP on IA Emulator, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 9, resetKeyBoard: true, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, unicodeKeyboard: true, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 4cf9a5e8-7ea1-49b6-9791-1f3ec14fbe07
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
+	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.click(Unknown Source)
+	at br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen.getAdcQuantidade(BuscaScreen.java:46)
+	at br.com.rsinet.mobile_Project_BDD.TestSteps.BuscaSteps.adiciona_quantidade_nao_suportada(BuscaSteps.java:55)
+	at ✽.E adiciona quantidade nao suportada(Busca.feature:16)
+</pre></td>
 												</tr>
 										</tbody>
 									</table>
 								</div>
 						</div>
 				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='6'>
+				<li class='node level-2 leaf skip' status='skip' test-id='6'>
 					<div class='collapsible-header'>
-						<div class='node-name'>Entao o usuario devera ser cadastrado</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:17 PM</span>
-						<span class='node-duration'>0h 0m 0s+0ms</span>
-						<span class='test-status right pass'>pass</span>
+						<div class='node-name'>Entao validar operacao</div>						
+						<span class='node-time'>Feb 12, 2020 12:14:01 PM</span>
+						<span class='node-duration'>0h 0m 0s+1ms</span>
+						<span class='test-status right skip'>skip</span>
 					</div>
 						<div class='collapsible-body'>
 								<div class='node-steps'>
@@ -288,132 +324,10 @@
 											</tr>
 										</thead>
 										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:17 PM</td>
-													<td class='step-details'>passed</td>
-												</tr>
-										</tbody>
-									</table>
-								</div>
-						</div>
-				</li>
-						</ul>
-				</li>
-				<li class='node level-1  pass' status='pass' test-id='7'>
-					<div class='collapsible-header'>
-						<div class='node-name'>Scenario: Cadastrar usuario com falha</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:17 PM</span>
-						<span class='node-duration'>0h 0m 38s+563ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<ul class='collapsible node-list' data-collapsible='accordion'>
-				<li class='node level-2 leaf pass' status='pass' test-id='8'>
-					<div class='collapsible-header'>
-						<div class='node-name'>Dado que estou na pagina de Cadastro</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:17 PM</span>
-						<span class='node-duration'>0h 0m 12s+813ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<div class='collapsible-body'>
-								<div class='node-steps'>
-									<table class='bordered table-results'>
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Timestamp</th>
-												<th>Details</th>
-											</tr>
-										</thead>
-										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:30 PM</td>
-													<td class='step-details'>passed</td>
-												</tr>
-										</tbody>
-									</table>
-								</div>
-						</div>
-				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='9'>
-					<div class='collapsible-header'>
-						<div class='node-name'>E preencher os dados do usuario</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:30 PM</span>
-						<span class='node-duration'>0h 0m 23s+227ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<div class='collapsible-body'>
-								<div class='node-steps'>
-									<table class='bordered table-results'>
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Timestamp</th>
-												<th>Details</th>
-											</tr>
-										</thead>
-										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:53 PM</td>
-													<td class='step-details'>passed</td>
-												</tr>
-										</tbody>
-									</table>
-								</div>
-						</div>
-				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='10'>
-					<div class='collapsible-header'>
-						<div class='node-name'>Quando registrar</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:53 PM</span>
-						<span class='node-duration'>0h 0m 1s+495ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<div class='collapsible-body'>
-								<div class='node-steps'>
-									<table class='bordered table-results'>
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Timestamp</th>
-												<th>Details</th>
-											</tr>
-										</thead>
-										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:54 PM</td>
-													<td class='step-details'>passed</td>
-												</tr>
-										</tbody>
-									</table>
-								</div>
-						</div>
-				</li>
-				<li class='node level-2 leaf pass' status='pass' test-id='11'>
-					<div class='collapsible-header'>
-						<div class='node-name'>Entao o usuario nao devera ser cadastrado</div>						
-						<span class='node-time'>Feb 11, 2020 11:04:54 PM</span>
-						<span class='node-duration'>0h 0m 1s+24ms</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-						<div class='collapsible-body'>
-								<div class='node-steps'>
-									<table class='bordered table-results'>
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Timestamp</th>
-												<th>Details</th>
-											</tr>
-										</thead>
-										<tbody>
-												<tr class='log' status='pass'>
-													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-													<td class='timestamp'>11:04:55 PM</td>
-													<td class='step-details'>passed</td>
+												<tr class='log' status='skip'>
+													<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+													<td class='timestamp'>12:14:01 PM</td>
+													<td class='step-details'>skipped</td>
 												</tr>
 										</tbody>
 									</table>
@@ -476,15 +390,15 @@
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@Cadastro</span>
+						<span class='category-name'>@Busca</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label fail'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
 							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
 							
 						</div>
 					
@@ -499,9 +413,9 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Feb 11, 2020 11:03:29 PM</td>
-										<td class='linked' test-id='1'>Cadastrar usuario</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Feb 12, 2020 12:13:39 PM</td>
+										<td class='linked' test-id='1'>Buscar produto</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -510,15 +424,15 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@Cadastro_Sucesso</span>
+						<span class='category-name'>@Busca_Falha</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label fail'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
 							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
 							
 						</div>
 					
@@ -533,43 +447,9 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Feb 11, 2020 11:03:29 PM</td>
-										<td class='linked' test-id='2'>Cadastrar usuario.Scenario: Cadastrar usuario com sucesso</td>
-										<td><span class='test-status pass'>pass</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
-						<span class='category-name'>@Cadastro_Falha</span>
-						<span class='category-status right'>
-							<span class='label pass'>1</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
-							
-							
-						</div>
-					
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Feb 11, 2020 11:04:17 PM</td>
-										<td class='linked' test-id='7'>Cadastrar usuario.Scenario: Cadastrar usuario com falha</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Feb 12, 2020 12:13:39 PM</td>
+										<td class='linked' test-id='2'>Buscar produto.Scenario: Falha ao adicionar produtos</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -587,7 +467,102 @@
 		</div>
 	</div>
 </div>
-<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='exception-view' class='view hide'>
+	
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Exceptions</h3>
+			<ul id='exception-collection' class='exception-collection'>
+				
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.StaleElementReferenceException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>	
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 12, 2020 12:13:39 PM</td>
+										<td class='linked' test-id='2'>Buscar produto.Scenario: Falha ao adicionar produtos</td>
+										<td><pre><pre>org.openqa.selenium.StaleElementReferenceException: androidx.test.uiautomator.StaleObjectException
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'RSI1508', ip: '10.1.0.60', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.Advantage.aShopping.Spl..., appPackage: com.Advantage.aShopping, browserName: , databaseEnabled: false, desired: {appActivity: com.Advantage.aShopping.Spl..., appPackage: com.Advantage.aShopping, browserName: , deviceName: AOSP on IA Emulator, platformName: android, platformVersion: 9, resetKeyBoard: true, udid: emulator-5554, unicodeKeyboard: true}, deviceApiLevel: 28, deviceManufacturer: Google, deviceModel: AOSP on IA Emulator, deviceName: emulator-5554, deviceScreenDensity: 420, deviceScreenSize: 1080x1920, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.625, platform: LINUX, platformName: Android, platformVersion: 9, resetKeyBoard: true, statBarHeight: 63, takesScreenshot: true, udid: emulator-5554, unicodeKeyboard: true, viewportRect: {height: 1731, left: 0, top: 63, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 4cf9a5e8-7ea1-49b6-9791-1f3ec14fbe07
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
+	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
+	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.click(Unknown Source)
+	at br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen.getAdcQuantidade(BuscaScreen.java:46)
+	at br.com.rsinet.mobile_Project_BDD.TestSteps.BuscaSteps.adiciona_quantidade_nao_suportada(BuscaSteps.java:55)
+	at ✽.E adiciona quantidade nao suportada(Busca.feature:16)
+</pre></pre></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -595,31 +570,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>8</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>8</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 11, 2020 11:03:29 PM</div>
+					<div class='panel-lead'>Feb 12, 2020 12:13:39 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 11, 2020 11:04:55 PM</div>
+			 		<div class='panel-lead'>Feb 12, 2020 12:14:01 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>86,182ms</div>
+					<div class='panel-lead'>22,400ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -634,21 +609,15 @@
 							<th>Others</th>
 						</tr>
 						<tr>
-							<td>@Cadastro</td>
-							<td>1</td>
+							<td>@Busca</td>
 							<td>0</td>
+							<td>1</td>
 							<td>0</td>
 						</tr>
 						<tr>
-							<td>@Cadastro_Sucesso</td>
+							<td>@Busca_Falha</td>
+							<td>0</td>
 							<td>1</td>
-							<td>0</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>@Cadastro_Falha</td>
-							<td>1</td>
-							<td>0</td>
 							<td>0</td>
 						</tr>
 					</table>
@@ -663,22 +632,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 8,
-				failParent: 0,
+				passParent: 2,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
-				skipParent: 0,
-				exceptionsParent: 0,
+				skipParent: 1,
+				exceptionsParent: 2,
 				
-				passChild: 8,
-				failChild: 0,
+				passChild: 2,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
-				skipChild: 0,
+				skipChild: 1,
 				infoChild: 0,
-				exceptionsChild: 0,
+				exceptionsChild: 2,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

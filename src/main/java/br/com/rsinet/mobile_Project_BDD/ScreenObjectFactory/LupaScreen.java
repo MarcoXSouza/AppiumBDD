@@ -38,12 +38,8 @@ public class LupaScreen {
 		clicaLupa.click();
 	}
 
-	public void getPesquisaLupaValido() {
-		clicaLupa.sendKeys("HP ELITEPAD 1000 G2 TABLET");
-	}
-	
-	public void getPesquisaLupaInvalido() {
-		clicaLupa.sendKeys("Agua");
+	public void getPesquisaLupa(String produto) {
+		clicaLupa.sendKeys(produto);
 	}
 
 	public void getClicaItem() {

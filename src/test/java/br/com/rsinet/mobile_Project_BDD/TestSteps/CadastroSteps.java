@@ -29,31 +29,51 @@ public class CadastroSteps {
 	}
 
 	@Dado("^que estou na pagina de Cadastro$")
-	public void que_estou_na_pagina_de_Cadastro() throws MalformedURLException {
+	public void que_estou_na_pagina_de_Cadastro() {
 		logIn.getClicaOpcoes();
 		logIn.getClicaLogIn();
 		logIn.getClicaNovaConta();
 	}
 
-	@Dado("^preencher os dados do usuario$")
-	public void preencher_os_dados_do_usuario() {
-		cadastro.getNome();
-		cadastro.getEmail();
-		cadastro.getSenha();
-		cadastro.getConfirmarSenha();
-		cadastro.getPrimeiroNome();
-		cadastro.getUltimoNome();
-		cadastro.getTelefone();
-		cadastro.scroll(driver);
-		cadastro.getPais();
-		cadastro.escolhePais(driver);
-		cadastro.getEstado();
-		cadastro.getEndereco();
-		cadastro.getCidade();
-		cadastro.getCep();
+	@Dado("^preencher nome do usuario \"([^\"]*)\"$")
+	public void preencher_nome_do_usuario(String nome) {
+		cadastro.getNome(nome);
 	}
 
-	// Teste Sucesso
+	@Dado("^preencer o email \"([^\"]*)\"$")
+	public void preencer_o_email(String email) {
+		cadastro.getEmail(email);
+	}
+
+	@Dado("^a senha \"([^\"]*)\" e confirmar \"([^\"]*)\"$")
+	public void a_senha_e_confirmar(String senha, String confirmarSenha) {
+	       cadastro.getSenha(senha);
+	       cadastro.getConfirmarSenha(confirmarSenha);
+	}
+
+	@Dado("^primeiro nome \"([^\"]*)\" sobrenome \"([^\"]*)\" e telefone \"([^\"]*)\"$")
+	public void primeiro_nome_sobrenome_e_telefone(String nome, String sobrenome, String telefone) {
+	       cadastro.getPrimeiroNome(nome);
+	       cadastro.getUltimoNome(sobrenome);
+	       cadastro.getTelefone(telefone);
+	       cadastro.scroll(driver);
+	}
+
+	@Dado("^selecionar o pais$")
+	public void selecionar_o_pais() {
+		cadastro.getPais();
+		cadastro.escolhePais(driver);
+	       
+	}
+
+	@Dado("^preencher o estado \"([^\"]*)\" endereco \"([^\"]*)\" cidade \"([^\"]*)\" e cep \"([^\"]*)\"$")
+	public void preencher_o_estado_endereco_cidade_e_cep(String estado, String endereco, String cidade, String cep) {
+	    cadastro.getEstado(estado);
+	    cadastro.getEndereco(endereco);
+	    cadastro.getCidade(cidade);
+		cadastro.getCep(cep);
+	}
+
 	@Quando("^clicar em registrar$")
 	public void clicar_em_registrar() {
 		cadastro.getRegistra();
@@ -61,22 +81,16 @@ public class CadastroSteps {
 
 	}
 
-	@Entao("^o usuario devera ser cadastrado$")
-	public void o_usuario_devera_ser_cadastrado() {
-//		Assert.assertTrue(cadastro.getValidaCadastro().equals("nome"));
+	@Entao("^o usuario devera ser cadastrado \"([^\"]*)\"$")
+	public void o_usuario_devera_ser_cadastrado(String nome) {
+		System.out.println(cadastro.getValidaCadastro());
+		Assert.assertTrue(cadastro.getValidaCadastro().equals(nome));
 	}
 
-	// Teste Falha
-	@Quando("^registrar$")
-	public void registrar() {
-		cadastro.getRegistra();
-		logIn.getClicaOpcoes();
-
-	}
-
-	@Entao("^o usuario nao devera ser cadastrado$")
-	public void o_usuario_nao_devera_ser_cadastrado() {
-		Assert.assertFalse(cadastro.getValidaCadastro().equals("nome"));
+	@Entao("^o usuario nao devera ser cadastrado \"([^\"]*)\"$")
+	public void o_usuario_nao_devera_ser_cadastrado(String nome) {
+		System.out.println(cadastro.getValidaCadastro());
+		Assert.assertFalse(cadastro.getValidaCadastro().equals(nome));
 	}
 
 }

@@ -12,6 +12,7 @@ import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class LupaSteps {
+	@SuppressWarnings("unused")
 	private static AndroidDriver<WebElement> driver;
 	private LupaScreen lupa;
 	private TestContext testContext;
@@ -20,41 +21,27 @@ public class LupaSteps {
 		testContext = context;
 		lupa = testContext.getScreenFactory().getLupaScreen();
 		driver = testContext.getDriverFactory().iniciaAplicativo();
-
 	}
-	
 
 	@Dado("^que cliquei na lupa$")
 	public void que_cliquei_na_lupa() throws MalformedURLException {
 		lupa.getClicaLupa();
 	}
 
-	// Sucesso
-	@Dado("^pesquisei o produto$")
-	public void pesquisei_o_produto() {
-		lupa.getPesquisaLupaValido();
+	@Quando("^pesquisei o produto \"([^\"]*)\"$")
+	public void pesquisei_o_produto(String produto) {
+		lupa.getPesquisaLupa(produto);
 		lupa.getClicaPesquisa();
-
-	}
-
-	@Quando("^selecionar o produto$")
-	public void selecionar_o_produto() {
-		lupa.getClicaItem();
 	}
 
 	@Entao("^o produto sera validado$")
 	public void o_produto_sera_validado() {
-	}
-
-	// Falha
-	@Quando("^pesquisar o produto$")
-	public void pesquisar_o_produto() throws Throwable {
-		lupa.getPesquisaLupaInvalido();
-		lupa.getClicaPesquisa();
+		lupa.getClicaItem();
 	}
 
 	@Entao("^o produto nao sera encontrado$")
 	public void o_produto_nao_sera_encontrado() {
 
 	}
+
 }

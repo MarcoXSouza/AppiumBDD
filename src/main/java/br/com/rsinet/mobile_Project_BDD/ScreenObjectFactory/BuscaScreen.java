@@ -21,7 +21,7 @@ public class BuscaScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductQuantity")
 	private WebElement quantidade;
 
-	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductQuantity")
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText")
 	private WebElement adcQuantidade;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewApply")

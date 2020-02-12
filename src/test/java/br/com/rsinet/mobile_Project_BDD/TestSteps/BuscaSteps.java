@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -15,10 +13,10 @@ import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BuscaSteps {
+	@SuppressWarnings("unused")
 	private AndroidDriver<WebElement> driver;
 	private BuscaScreen busca;
 	private LogInScreen logIn;
-	private ScreenObjectManager screenObjectManager;
 	private TestContext testContext;
 
 	public BuscaSteps(TestContext context) {

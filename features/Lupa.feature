@@ -6,12 +6,19 @@ Funcionalidade: Pesquisar produto pela lupa
     Dado que cliquei na lupa
 
   @Lupa_Sucesso
-  Cenario: Pesquisa produto pela Lupa com sucesso
-    E pesquisei o produto
-    Quando selecionar o produto
+  Esquema do Cenario: Pesquisa produto pela Lupa com sucesso
+    Quando pesquisei o produto "<produto>"
     Entao o produto sera validado
 
+    Exemplos: 
+      | produto                    |
+      | HP ELITEPAD 1000 G2 TABLET |
+
   @Lupa_Falha
-  Cenario: Pesquisa produto inexistente
-    Quando pesquisar o produto
+  Esquema do Cenario: Pesquisa produto inexistente
+    Quando pesquisei o produto "<produto>"
     Entao o produto nao sera encontrado
+
+    Exemplos: 
+      | produto |
+      | carro   |

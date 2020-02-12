@@ -17,7 +17,7 @@ import cucumber.api.junit.Cucumber;
 		,monochrome = true
 		,plugin = "com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\Report\\report.html"
 		,dryRun = false
-		,tags = {"@Cadastro"}
+		,tags = {"@Busca_Falha"}
 		)
 
 public class Runner{
