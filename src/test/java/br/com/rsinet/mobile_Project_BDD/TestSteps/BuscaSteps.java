@@ -2,10 +2,12 @@ package br.com.rsinet.mobile_Project_BDD.TestSteps;
 
 import java.net.MalformedURLException;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.Constante;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -19,13 +21,27 @@ public class BuscaSteps {
 	private LogInScreen logIn;
 	private TestContext testContext;
 
-	public BuscaSteps(TestContext context) {
+	public BuscaSteps(TestContext context) throws MalformedURLException {
 		testContext = context;
 		busca = testContext.getScreenFactory().getBuscaScreen();
 		logIn = testContext.getScreenFactory().getLogInScreen();
+		driver = testContext.getDriverFactory().iniciaAplicativo();
 
 	}
 
+	// Sucesso
+	@Dado("^o produto$")
+	public void o_produto() throws Throwable {
+		busca.getEscolheCategoria();
+		busca.getEscolheItem();
+	}
+
+	@Entao("^verificar o produto$")
+	public void verificar_o_produto() {
+		Assert.assertTrue(busca.getVerificaItem().equals(Constante.produto));
+	}
+
+	// Falha
 	@Dado("^estou logado$")
 	public void estou_logado() throws MalformedURLException {
 		logIn.getClicaOpcoes();
@@ -42,13 +58,6 @@ public class BuscaSteps {
 		busca.getEscolheItem();
 	}
 
-	// Sucesso
-	@Entao("^verificar o produto$")
-	public void verificar_o_produto() {
-
-	}
-
-	// Falha
 	@Quando("^adiciona quantidade nao suportada$")
 	public void adiciona_quantidade_nao_suportada() {
 		busca.getQuantidade();
@@ -59,7 +68,7 @@ public class BuscaSteps {
 
 	@Entao("^validar operacao$")
 	public void validar_operacao() {
-
+		Assert.assertFalse(busca.getConfereCarrinho().equals("120"));
 	}
 
 }

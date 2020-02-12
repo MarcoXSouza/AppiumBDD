@@ -30,6 +30,12 @@ public class BuscaScreen {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonProductAddToCart")
 	private WebElement adcAoCarrinho;
 
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCartLength")
+	private WebElement confereCarrinho;
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
+	private WebElement verificaItem;
+
 	public void getEscolheCategoria() {
 		escolheCategoria.click();
 	}
@@ -53,6 +59,14 @@ public class BuscaScreen {
 
 	public void getAdcAoCarrinho() {
 		adcAoCarrinho.click();
+	}
+
+	public String getVerificaItem() {
+		return verificaItem.getText();
+	}
+
+	public String getConfereCarrinho() {
+		return confereCarrinho.getText();
 	}
 
 }

@@ -20,7 +20,7 @@ public class Hooks {
 
 	@After
 	public void fechaApp() {
-		DriverFactory.fechaAplicativo();
+		testContext.getDriverFactory().fechaAplicativo();
 	}
 
 }

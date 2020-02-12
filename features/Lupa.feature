@@ -8,7 +8,7 @@ Funcionalidade: Pesquisar produto pela lupa
   @Lupa_Sucesso
   Esquema do Cenario: Pesquisa produto pela Lupa com sucesso
     Quando pesquisei o produto "<produto>"
-    Entao o produto sera validado
+    Entao o produto sera validado "<produto>"
 
     Exemplos: 
       | produto                    |
@@ -17,7 +17,7 @@ Funcionalidade: Pesquisar produto pela lupa
   @Lupa_Falha
   Esquema do Cenario: Pesquisa produto inexistente
     Quando pesquisei o produto "<produto>"
-    Entao o produto nao sera encontrado
+    Entao o produto nao sera encontrado "<produto>"
 
     Exemplos: 
       | produto |

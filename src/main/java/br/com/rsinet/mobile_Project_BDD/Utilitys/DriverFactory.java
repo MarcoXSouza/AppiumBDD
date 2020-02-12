@@ -38,7 +38,7 @@ public class DriverFactory {
 		return driver;
 	}
 
-	public static void fechaAplicativo() {
+	public void fechaAplicativo() {
 		if (driver != null)
 			driver.closeApp();
 	}

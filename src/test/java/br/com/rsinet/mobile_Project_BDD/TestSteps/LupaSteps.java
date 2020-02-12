@@ -2,6 +2,7 @@ package br.com.rsinet.mobile_Project_BDD.TestSteps;
 
 import java.net.MalformedURLException;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
@@ -34,14 +35,15 @@ public class LupaSteps {
 		lupa.getClicaPesquisa();
 	}
 
-	@Entao("^o produto sera validado$")
-	public void o_produto_sera_validado() {
+	@Entao("^o produto sera validado \"([^\"]*)\"$")
+	public void o_produto_sera_validado(String produto) {
 		lupa.getClicaItem();
+		Assert.assertTrue(lupa.getValidaProduto().equals(produto));
 	}
 
-	@Entao("^o produto nao sera encontrado$")
-	public void o_produto_nao_sera_encontrado() {
-
+	@Entao("^o produto nao sera encontrado \"([^\"]*)\"$")
+	public void o_produto_nao_sera_encontrado(String produto) {
+		Assert.assertFalse(lupa.getProdutoInexistente().equals(produto));
 	}
 
 }
