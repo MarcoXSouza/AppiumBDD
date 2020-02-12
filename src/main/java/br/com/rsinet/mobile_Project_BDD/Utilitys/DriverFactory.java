@@ -15,8 +15,7 @@ public class DriverFactory {
 	private static AndroidDriver<WebElement> driver;
 	private static DesiredCapabilities cap;
 
-	public static AndroidDriver<WebElement> iniciaAplicativo() throws MalformedURLException {
-		if (driver == null) {
+	public AndroidDriver<WebElement> iniciaAplicativo() throws MalformedURLException {
 		cap = new DesiredCapabilities();
 		cap.setCapability(CapabilityType.BROWSER_NAME, "");
 		cap.setCapability("deviceName", "AOSP on IA Emulator");
@@ -29,12 +28,18 @@ public class DriverFactory {
 		cap.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
 		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		return driver;
+	}
+
+	public AndroidDriver<WebElement> iniciaDriver() throws MalformedURLException {
+		if (driver == null) {
+			return iniciaAplicativo();
 		}
 		return driver;
 	}
 
 	public static void fechaAplicativo() {
 		if (driver != null)
-		driver.closeApp();
+			driver.closeApp();
 	}
 }

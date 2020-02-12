@@ -1,13 +1,14 @@
 package br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class BuscaScreen {
-	public BuscaScreen(WebDriver driver) {
+	public BuscaScreen(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 	}
 

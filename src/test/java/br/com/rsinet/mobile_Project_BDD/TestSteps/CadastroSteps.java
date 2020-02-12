@@ -7,36 +7,29 @@ import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.CadastroScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CadastroSteps {
-	private AndroidDriver<WebElement> driver;
+	private static AndroidDriver<WebElement> driver;
 	private CadastroScreen cadastro;
 	private LogInScreen logIn;
-	private ScreenObjectManager screenObjectManager;
+	private TestContext testContext;
+	
+	
+	
+	public CadastroSteps(TestContext context) throws MalformedURLException {
+		testContext = context;
+		logIn = testContext.getScreenFactory().getLogInScreen();
+		cadastro = testContext.getScreenFactory().getcadastroScreen();
+		driver = testContext.getDriverFactory().iniciaAplicativo();
+	}
 
-	@Before
-	public void iniciaApp() throws MalformedURLException {
-		driver = DriverFactory.iniciaAplicativo();
-	}
-	
-	@After("@Cadastro_Sucesso")
-	public void fechaApp() {
-		driver.closeApp();
-	}
-	
 	@Dado("^que estou na pagina de Cadastro$")
 	public void que_estou_na_pagina_de_Cadastro() throws MalformedURLException {
-		screenObjectManager = new ScreenObjectManager(driver);
-		cadastro = screenObjectManager.getcadastroScreen();
-		logIn = screenObjectManager.getLogInScreen();
 		logIn.getClicaOpcoes();
 		logIn.getClicaLogIn();
 		logIn.getClicaNovaConta();

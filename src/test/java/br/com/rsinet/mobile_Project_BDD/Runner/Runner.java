@@ -17,13 +17,13 @@ import cucumber.api.junit.Cucumber;
 		,monochrome = true
 		,plugin = "com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\Report\\report.html"
 		,dryRun = false
-		,tags = {"@Lupa"}
+		,tags = {"@Cadastro"}
 		)
 
 public class Runner{
 	@AfterClass
 	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\pom.xml"));
+		Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
 	}
 	
 }

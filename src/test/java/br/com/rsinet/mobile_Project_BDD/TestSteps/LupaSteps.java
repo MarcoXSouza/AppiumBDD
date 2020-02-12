@@ -1,46 +1,31 @@
 package br.com.rsinet.mobile_Project_BDD.TestSteps;
 
 import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class LupaSteps {
-	private AndroidDriver<WebElement> driver;
+	private static AndroidDriver<WebElement> driver;
 	private LupaScreen lupa;
-	private ScreenObjectManager screenObjectManager;
+	private TestContext testContext;
 
-	@Before
-	public void iniciaApp() throws MalformedURLException {
-		driver = DriverFactory.iniciaAplicativo();
-		driver.launchApp();
-	}
+	public LupaSteps(TestContext context) throws MalformedURLException {
+		testContext = context;
+		lupa = testContext.getScreenFactory().getLupaScreen();
+		driver = testContext.getDriverFactory().iniciaAplicativo();
 
-	@After("@Lupa_Falha")
-	public void inicia() throws MalformedURLException {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		DriverFactory.fechaAplicativo();
 	}
-
-	@After("@Lupa_Sucesso")
-	public void fechaApp() {
-		driver.closeApp();
-	}
+	
 
 	@Dado("^que cliquei na lupa$")
 	public void que_cliquei_na_lupa() throws MalformedURLException {
-		screenObjectManager = new ScreenObjectManager(driver);
-		lupa = screenObjectManager.getLupaScreen();
 		lupa.getClicaLupa();
 	}
 

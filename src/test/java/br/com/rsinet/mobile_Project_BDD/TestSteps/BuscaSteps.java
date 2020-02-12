@@ -8,6 +8,7 @@ import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.DriverFactory;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.ScreenObjectManager;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -18,13 +19,17 @@ public class BuscaSteps {
 	private BuscaScreen busca;
 	private LogInScreen logIn;
 	private ScreenObjectManager screenObjectManager;
+	private TestContext testContext;
+
+	public BuscaSteps(TestContext context) {
+		testContext = context;
+		busca = testContext.getScreenFactory().getBuscaScreen();
+		logIn = testContext.getScreenFactory().getLogInScreen();
+
+	}
 
 	@Dado("^estou logado$")
 	public void estou_logado() throws MalformedURLException {
-		driver = DriverFactory.iniciaAplicativo();
-		screenObjectManager = new ScreenObjectManager(driver);
-		busca = screenObjectManager.getBuscaScreen();
-		logIn = screenObjectManager.getLogInScreen();
 		logIn.getClicaOpcoes();
 		logIn.getClicaLogIn();
 		logIn.getUserName();
@@ -42,7 +47,7 @@ public class BuscaSteps {
 	// Sucesso
 	@Entao("^verificar o produto$")
 	public void verificar_o_produto() {
-		
+
 	}
 
 	// Falha

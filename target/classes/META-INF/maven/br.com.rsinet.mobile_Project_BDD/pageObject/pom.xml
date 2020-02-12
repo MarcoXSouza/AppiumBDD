@@ -20,6 +20,14 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy-dep -->
 		<dependency>
 			<groupId>net.bytebuddy</groupId>
@@ -125,17 +133,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.vimalselvam</groupId>
-			<artifactId>cucumber-extentsreport</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
-
-
-		<dependency>
 			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>3.0.3</version>
+			<artifactId>extentreports-cucumber4-adapter</artifactId>
+			<version>1.0.7</version>
 		</dependency>
 
 		<dependency>
@@ -145,9 +145,15 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports-cucumber4-adapter</artifactId>
-			<version>1.0.7</version>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.3</version>
 		</dependency>
 	</dependencies>
 
