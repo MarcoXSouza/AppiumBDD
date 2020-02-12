@@ -27,3 +27,7 @@ public class Runner{
 	}
 	
 }
+
+
+//Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
+
