@@ -27,27 +27,25 @@ public class Hooks {
 		testContext.getDriverFactory().iniciaAplicativo();
 	}
 
-	@After(order = 1000)
-	public void afterScenario(Scenario scenario) {
+	@After
+	public void afterScenario(Scenario scenario) throws MalformedURLException, Exception {
 
 		String screenshotName = scenario.getName().replaceAll(" ", "_");
-		try {
-			File sourcePath = ((TakesScreenshot) testContext.getDriverFactory().iniciaAplicativo())
-					.getScreenshotAs(OutputType.FILE);
-
-			File destinationPath = new File(
-					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
-
-			Files.copy(sourcePath, destinationPath);
-
-			Reporter.addScreenCaptureFromPath(destinationPath.toString());
-		} catch (IOException e) {
-		}
-
-	}
-
-	@After
-	public void fechaApp() {
+		Snapshot.tirarPrints(screenshotName, testContext.getDriverFactory().iniciaAplicativo());
+//		try {
+//			File sourcePath = ((TakesScreenshot) testContext.getDriverFactory().iniciaAplicativo())
+//					.getScreenshotAs(OutputType.FILE);
+//
+//			File destinationPath = new File(
+//					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
+//
+//			Files.copy(sourcePath, destinationPath);
+//
+//			Reporter.addScreenCaptureFromPath(destinationPath.toString());
+//		} catch (IOException e) {
+//			System.out.println("Erro" + e.getMessage());
+//		}
+//
 		testContext.getDriverFactory().fechaAplicativo();
 	}
 

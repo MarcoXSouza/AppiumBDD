@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.Constante;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.Snapshot;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -15,7 +16,6 @@ import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BuscaSteps {
-	@SuppressWarnings("unused")
 	private AndroidDriver<WebElement> driver;
 	private BuscaScreen busca;
 	private LogInScreen logIn;
@@ -37,8 +37,9 @@ public class BuscaSteps {
 	}
 
 	@Entao("^verificar o produto$")
-	public void verificar_o_produto() {
+	public void verificar_o_produto() throws Exception {
 		Assert.assertTrue(busca.getVerificaItem().equals(Constante.produto));
+		Snapshot.tirarPrints("buscaSucesso", driver);
 	}
 
 	// Falha
@@ -67,8 +68,9 @@ public class BuscaSteps {
 	}
 
 	@Entao("^validar operacao$")
-	public void validar_operacao() {
+	public void validar_operacao() throws Exception {
 		Assert.assertFalse(busca.getConfereCarrinho().equals("120"));
+		Snapshot.tirarPrints("BuscaFalha", driver);
 	}
 
 }

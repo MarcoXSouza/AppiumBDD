@@ -1,47 +1,32 @@
 package br.com.rsinet.mobile_Project_BDD.Utilitys;
 
 import java.io.File;
-import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
-import com.cucumber.listener.Reporter;
-import com.google.common.io.Files;
-
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 
 public class Snapshot {
-	private TestContext testContext;
+	
+	public static AndroidDriver<MobileElement> driver;
+    
+    public static void tirarPrints(String nomeDaImagem, WebDriver driver) throws Exception {
+        TakesScreenshot scrShot = ((TakesScreenshot) driver);
+        File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+        String imageFileDir = "./Report/";
+        FileUtils.copyFile(srcFile, new File(imageFileDir, nomeDaImagem + timestamp() + ".png"));
+    }
+        public static String timestamp() {
+            return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+        } 
 
-	public Snapshot(TestContext context) {
-		testContext = context;
-	}
-
-	@After(order = 1)
-	public void afterScenario(Scenario scenario) {
-		String screenshotName = scenario.getName().replaceAll(" ", "_");
-		try {
-
-			File sourcePath = ((TakesScreenshot) testContext.getDriverFactory().iniciaDriver())
-					.getScreenshotAs(OutputType.FILE);
-
-			File destinationPath = new File(System.getProperty("user.dir") + "/target/"
-					+ screenshotName + ".png");
-
-			Files.copy(sourcePath, destinationPath);
-
-			Reporter.addScreenCaptureFromPath(destinationPath.toString());
-
-		} catch (IOException e) {
-			System.out.println("falha no Teste");
-		}
-
-	}
 }
-
-
 
 
 

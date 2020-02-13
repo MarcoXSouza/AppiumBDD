@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.CadastroScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.Snapshot;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -82,15 +83,17 @@ public class CadastroSteps {
 	}
 
 	@Entao("^o usuario devera ser cadastrado \"([^\"]*)\"$")
-	public void o_usuario_devera_ser_cadastrado(String nome) {
+	public void o_usuario_devera_ser_cadastrado(String nome) throws Exception {
 		System.out.println(cadastro.getValidaCadastro());
 		Assert.assertTrue(cadastro.getValidaCadastro().equals(nome));
+		Snapshot.tirarPrints("CadastroSucesso", driver);
 	}
 
 	@Entao("^o usuario nao devera ser cadastrado \"([^\"]*)\"$")
-	public void o_usuario_nao_devera_ser_cadastrado(String nome) {
+	public void o_usuario_nao_devera_ser_cadastrado(String nome) throws Exception {
 		System.out.println(cadastro.getValidaCadastro());
 		Assert.assertFalse(cadastro.getValidaCadastro().equals(nome));
+		Snapshot.tirarPrints("CadastroFalha", driver);
 	}
 
 }

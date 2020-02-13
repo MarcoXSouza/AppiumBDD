@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
+import br.com.rsinet.mobile_Project_BDD.Utilitys.Snapshot;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -13,7 +14,6 @@ import cucumber.api.java.pt.Quando;
 import io.appium.java_client.android.AndroidDriver;
 
 public class LupaSteps {
-	@SuppressWarnings("unused")
 	private static AndroidDriver<WebElement> driver;
 	private LupaScreen lupa;
 	private TestContext testContext;
@@ -36,14 +36,16 @@ public class LupaSteps {
 	}
 
 	@Entao("^o produto sera validado \"([^\"]*)\"$")
-	public void o_produto_sera_validado(String produto) {
+	public void o_produto_sera_validado(String produto) throws Exception {
 		lupa.getClicaItem();
 		Assert.assertTrue(lupa.getValidaProduto().equals(produto));
+		Snapshot.tirarPrints("LupaSucesso", driver);
 	}
 
 	@Entao("^o produto nao sera encontrado \"([^\"]*)\"$")
-	public void o_produto_nao_sera_encontrado(String produto) {
+	public void o_produto_nao_sera_encontrado(String produto) throws Exception {
 		Assert.assertFalse(lupa.getProdutoInexistente().equals(produto));
+		Snapshot.tirarPrints("LupaFalha", driver);
 	}
 
 }
