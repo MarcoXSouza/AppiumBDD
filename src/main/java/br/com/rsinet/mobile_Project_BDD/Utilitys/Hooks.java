@@ -31,21 +31,19 @@ public class Hooks {
 	public void afterScenario(Scenario scenario) throws MalformedURLException, Exception {
 
 		String screenshotName = scenario.getName().replaceAll(" ", "_");
-		Snapshot.tirarPrints(screenshotName, testContext.getDriverFactory().iniciaAplicativo());
-//		try {
-//			File sourcePath = ((TakesScreenshot) testContext.getDriverFactory().iniciaAplicativo())
-//					.getScreenshotAs(OutputType.FILE);
-//
-//			File destinationPath = new File(
-//					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
-//
-//			Files.copy(sourcePath, destinationPath);
-//
-//			Reporter.addScreenCaptureFromPath(destinationPath.toString());
-//		} catch (IOException e) {
-//			System.out.println("Erro" + e.getMessage());
-//		}
-//
+		try {
+			File sourcePath = ((TakesScreenshot) testContext.getDriverFactory().iniciaAplicativo())
+					.getScreenshotAs(OutputType.FILE);
+
+			File destinationPath = new File( "/Report/" + screenshotName + ".png");
+
+			Files.copy(sourcePath, destinationPath);
+
+			Reporter.addScreenCaptureFromPath(destinationPath.toString());
+		} catch (IOException e) {
+			System.out.println("Erro" + e.getMessage());
+		}
+
 		testContext.getDriverFactory().fechaAplicativo();
 	}
 
