@@ -15,19 +15,19 @@ import cucumber.api.junit.Cucumber;
 		features = "features"
 		,glue = "br.com.rsinet.mobile_Project_BDD.TestSteps"
 		,monochrome = true
-		,plugin = "com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\Report\\report.html"
 		,dryRun = false
-		,tags = {"@Lupa"}
+		,plugin = {"com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\marcos.souza\\Documents\\Marcos\\Projetos\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\Report\\report.html"}
+//		,tags = {"@Cadastro"}
 		)
 
 public class Runner{
 	@AfterClass
 	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
+		Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\Marcos\\Projetos\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
+
 	}
 	
 }
 
 
-//Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
 

@@ -12,6 +12,7 @@ public class ScreenObjectManager {
 
 	private AndroidDriver<WebElement> driver;
 
+	private Acoes acoes;
 	private BuscaScreen buscaScreen;
 	private CadastroScreen cadastroScreen;
 	private LupaScreen lupaScreen;
@@ -24,17 +25,21 @@ public class ScreenObjectManager {
 	public BuscaScreen getBuscaScreen() {
 		return (buscaScreen == null) ? buscaScreen = new BuscaScreen(driver) : buscaScreen;
 	}
-	
+
 	public CadastroScreen getcadastroScreen() {
 		return (cadastroScreen == null) ? cadastroScreen = new CadastroScreen(driver) : cadastroScreen;
 	}
-	
+
 	public LupaScreen getLupaScreen() {
 		return (lupaScreen == null) ? lupaScreen = new LupaScreen(driver) : lupaScreen;
 	}
-	
+
 	public LogInScreen getLogInScreen() {
-		return (logInScreen == null) ? logInScreen= new LogInScreen(driver) : logInScreen;
+		return (logInScreen == null) ? logInScreen = new LogInScreen(driver) : logInScreen;
 	}
-	
+
+	public Acoes getAcoes() {
+		return (acoes == null) ? acoes = new Acoes(driver) : acoes;
+	}
+
 }

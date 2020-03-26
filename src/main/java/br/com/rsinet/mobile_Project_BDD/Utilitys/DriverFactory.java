@@ -12,7 +12,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class DriverFactory {
 
-	private static AndroidDriver<WebElement> driver;
+	public static AndroidDriver<WebElement> driver;
 	private static DesiredCapabilities cap;
 
 	public AndroidDriver<WebElement> iniciaAplicativo() throws MalformedURLException {
@@ -27,7 +27,7 @@ public class DriverFactory {
 		cap.setCapability("appPackage", "com.Advantage.aShopping");
 		cap.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
 		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		return driver;
 	}
 

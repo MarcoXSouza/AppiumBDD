@@ -7,20 +7,19 @@ public class TestContext {
 	private ScreenObjectManager screenObjectManager;
 
 	public TestContext() throws MalformedURLException {
-
 		driverManager = new DriverFactory();
-		screenObjectManager = new ScreenObjectManager(driverManager.iniciaDriver());
+		screenObjectManager = new ScreenObjectManager(driverManager.iniciaAplicativo());
 
 	}
 
 	public DriverFactory getDriverFactory() {
-
 		return driverManager;
 
 	}
 
 	public ScreenObjectManager getScreenFactory() {
-
 		return screenObjectManager;
-}
+		
+	}
+
 }

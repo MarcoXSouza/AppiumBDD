@@ -3,25 +3,20 @@ package br.com.rsinet.mobile_Project_BDD.TestSteps;
 import java.net.MalformedURLException;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.Snapshot;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import io.appium.java_client.android.AndroidDriver;
 
 public class LupaSteps {
-	private static AndroidDriver<WebElement> driver;
 	private LupaScreen lupa;
 	private TestContext testContext;
 
 	public LupaSteps(TestContext context) throws MalformedURLException {
 		testContext = context;
 		lupa = testContext.getScreenFactory().getLupaScreen();
-		driver = testContext.getDriverFactory().iniciaAplicativo();
 	}
 
 	@Dado("^que cliquei na lupa$")
@@ -39,13 +34,11 @@ public class LupaSteps {
 	public void o_produto_sera_validado(String produto) throws Exception {
 		lupa.getClicaItem();
 		Assert.assertTrue(lupa.getValidaProduto().equals(produto));
-		Snapshot.tirarPrints("LupaSucesso", driver);
 	}
 
 	@Entao("^o produto nao sera encontrado \"([^\"]*)\"$")
 	public void o_produto_nao_sera_encontrado(String produto) throws Exception {
-		Assert.assertFalse(lupa.getProdutoInexistente().equals(produto));
-		Snapshot.tirarPrints("LupaFalha", driver);
+//		Assert.assertFalse(lupa.getProdutoInexistente().equals(produto));
 	}
 
 }
