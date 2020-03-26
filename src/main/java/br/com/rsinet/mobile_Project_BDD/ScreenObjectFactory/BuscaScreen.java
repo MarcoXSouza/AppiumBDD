@@ -7,6 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.android.AndroidDriver;
 
 public class BuscaScreen {
+	
+	/**
+	 * @author marcos.souza
+	 * Essa classe mapeia e manipula os elementos do aplicativo
+	 */
+
 	public BuscaScreen(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 	}

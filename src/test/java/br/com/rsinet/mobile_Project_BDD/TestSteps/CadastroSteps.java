@@ -13,6 +13,12 @@ import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class CadastroSteps {
+
+	/**
+	 * @author marcos.souza Essa classe utiliza metodos que estao definidos nas
+	 *         features e cada metodo chama um objeto de uma screen
+	 */
+
 	private CadastroScreen cadastro;
 	private LogInScreen logIn;
 	private TestContext testContext;

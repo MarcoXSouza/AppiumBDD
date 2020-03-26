@@ -7,6 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CadastroScreen {
+	
+	/**
+	 * @author marcos.souza
+	 * Essa classe mapeia e manipula os elementos do aplicativo
+	 */
 
 	public CadastroScreen(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);

@@ -9,6 +9,12 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class Acoes {
+	
+	/**
+	 * @author marcos.souza
+	 * Essa classe possui metodos de scroll
+	 */
+
 	public Acoes(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 	}

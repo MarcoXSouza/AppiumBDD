@@ -8,6 +8,11 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class LupaScreen {
 
+	/**
+	 * @author marcos.souza
+	 * Essa classe mapeia e manipula os elementos do aplicativo
+	 */
+
 	public LupaScreen(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 	}

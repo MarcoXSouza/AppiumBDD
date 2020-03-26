@@ -16,6 +16,12 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
 public class Hooks {
+	
+	/**
+	 * @author marcos.souza
+	 * Essa classe é chamada pelo JUnit(Cucumber.class) e antes e depois de um teste abre e fecha o app
+	 */
+	
 	private TestContext testContext;
 
 	public Hooks(TestContext context) {

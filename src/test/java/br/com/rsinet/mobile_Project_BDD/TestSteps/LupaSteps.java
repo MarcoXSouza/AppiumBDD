@@ -11,6 +11,12 @@ import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class LupaSteps {
+
+	/**
+	 * @author marcos.souza Essa classe utiliza metodos que estao definidos nas
+	 *         features e cada metodo chama um objeto de uma screen
+	 */
+
 	private LupaScreen lupa;
 	private TestContext testContext;
 

@@ -3,9 +3,13 @@
 Funcionalidade: Buscar produto
 
   @Busca_Sucesso
-  Cenario: Busca com sucesso
+  Esquema do Cenario: Busca com sucesso
     Dado o produto
-    Entao verificar o produto
+    Entao verificar o produto "<produto>"
+
+    Exemplos: 
+      | produto                    |
+      | HP ELITEPAD 1000 G2 TABLET |
 
   @Busca_Falha
   Cenario: Falha ao adicionar produtos

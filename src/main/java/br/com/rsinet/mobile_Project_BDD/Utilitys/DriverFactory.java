@@ -11,6 +11,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidDriver;
 
 public class DriverFactory {
+	
+	/**
+	 * @author marcos.souza
+	 * Essa classe cria o ambiente, inicializando e tambem fechando o driver
+	 */
 
 	public static AndroidDriver<WebElement> driver;
 	private static DesiredCapabilities cap;

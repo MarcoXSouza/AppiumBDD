@@ -6,13 +6,18 @@ import org.junit.Assert;
 
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.BuscaScreen;
 import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LogInScreen;
-import br.com.rsinet.mobile_Project_BDD.Utilitys.Constante;
 import br.com.rsinet.mobile_Project_BDD.Utilitys.TestContext;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class BuscaSteps {
+	
+	/**
+	 * @author marcos.souza Essa classe utiliza metodos que estao definidos nas
+	 *         features e cada metodo chama um objeto de uma screen
+	 */
+	
 	private BuscaScreen busca;
 	private LogInScreen logIn;
 	private TestContext testContext;
@@ -30,9 +35,9 @@ public class BuscaSteps {
 		busca.getEscolheItem();
 	}
 
-	@Entao("^verificar o produto$")
-	public void verificar_o_produto() throws Exception {
-		Assert.assertTrue(busca.getVerificaItem().equals(Constante.produto));
+	@Entao("^verificar o produto \"([^\"]*)\"$")
+	public void verificar_o_produto(String produto) throws Exception {
+		Assert.assertTrue(busca.getVerificaItem().equals(produto));
 	}
 
 	// Falha

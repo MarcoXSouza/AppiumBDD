@@ -9,6 +9,11 @@ import br.com.rsinet.mobile_Project_BDD.ScreenObjectFactory.LupaScreen;
 import io.appium.java_client.android.AndroidDriver;
 
 public class ScreenObjectManager {
+	
+	/**
+	 * @author marcos.souza
+	 * As classes de Step chama essa classe para instanciar as pages e manipular seus objetos
+	 */
 
 	private AndroidDriver<WebElement> driver;
 

@@ -21,6 +21,10 @@ import cucumber.api.junit.Cucumber;
 		)
 
 public class Runner{
+	/**
+	 * @author marcos.souza
+	 * Essa classe roda os testes
+	 */
 	@AfterClass
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(new File("C:\\Users\\marcos.souza\\Documents\\Marcos\\Projetos\\AndroidComCucumber\\workspace\\ProjetoAppiumBDD\\report.xml"));
